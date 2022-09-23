@@ -1,0 +1,51 @@
+<project name="flask demo" default="dist" basedir=".">
+  <description>
+    ddc api 
+  </description>
+  <!-- set global properties for this build -->
+  <property name="dist" location="dist"/>
+  <property name="archive_base_name" value="flask_demo"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${dist}"/>
+    <loadfile property="version"
+      srcFile="VERSION"/>
+    <property name="package" location="${dist}/${archive_base_name}_${version}"/>
+  </target>
+
+
+  <target name="dist" depends="init"
+        description="generate the distribution">
+
+    <copy file="README.md" tofile="${package}/README.md"/>
+    <copy file="requirements.txt" tofile="${package}/requirements.txt"/>
+    <copy todir="${package}/${archive_base_name}">
+       <fileset dir="${archive_base_name}/"/>
+    </copy>
+    <copy todir="${package}/bin">
+       <fileset dir="bin/"/>
+    </copy>
+    <copy todir="${package}/etc">
+       <fileset dir="etc/"/>
+    </copy>
+    <tar destfile="${dist}/${archive_base_name}_${version}.tar.gz" compression="gzip">
+       <tarfileset dir="${package}/.." filemode="755">
+       </tarfileset>
+    </tar>
+    
+  </target>
+
+  <target name="clean"
+        description="clean up">
+
+
+    <delete verbose="true" includeEmptyDirs="true">
+       <fileset dir="${archive_base_name}" includes="**/__pycache__/"/>
+    </delete>
+
+    <delete dir="${dist}"/>
+  </target>
+</project>

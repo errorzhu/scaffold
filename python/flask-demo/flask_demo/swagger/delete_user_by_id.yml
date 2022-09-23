@@ -1,0 +1,21 @@
+---
+tags:
+  - 用户接口
+description: 删除用户
+parameters:
+  - name: user_id
+    in: path
+    required: true
+responses:
+    200:
+      description: OK
+      schema:
+        type: object
+        example: {
+        "data":
+          { "id": 1, "username": "admin" }
+        ,
+        "status": "success"
+      }
+
+

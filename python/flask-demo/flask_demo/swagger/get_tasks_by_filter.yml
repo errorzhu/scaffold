@@ -1,0 +1,32 @@
+---
+tags:
+  - 任务接口
+description: 获取任务
+parameters:
+  - name: page_size
+    in: query
+    schema:
+      type: int
+      description: 页面大小
+      example: 1
+  - name: page_num
+    in: query
+    schema:
+      type: int
+      description: 页码
+      example: 1
+responses:
+    200:
+      description: OK
+      schema:
+        type: object
+        example: {
+        "data":{
+                 "summary":{"total":10},
+          "tasks":[{ "id": 1, "username": "admin" ,"user_id":1,"name":"任务1"}]
+                 }
+        ,
+        "status": "success"
+      }
+
+

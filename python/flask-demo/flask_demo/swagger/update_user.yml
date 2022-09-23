@@ -1,0 +1,39 @@
+---
+tags:
+  - 用户接口
+description: 更新用户
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: update_user
+      required:
+        - id
+      properties:
+        id:
+          type: int
+          description: 用户id
+          example: 1
+        username:
+          type: string
+          description: 用户名
+          example: "admin"
+        password:
+          type: string
+          description: 密码
+          example: "123456"
+responses:
+  200:
+    description: OK
+    schema:
+      type: object
+      example: {
+      "data": {
+        "username": "admin",
+        "id": 1
+      },
+      "status": "success"
+    }
+
+

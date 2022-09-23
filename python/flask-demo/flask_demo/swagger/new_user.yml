@@ -1,0 +1,36 @@
+---
+tags:
+  - 用户接口
+description: 创建新用户
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: new_user
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: 用户名
+          example: "admin"
+        password:
+          type: string
+          description: 密码
+          example: "123456"
+responses:
+  200:
+    description: OK
+    schema:
+      type: object
+      example: {
+      "data": {
+        "username": "admin",
+        "id": 1
+      },
+      "status": "success"
+    }
+
+

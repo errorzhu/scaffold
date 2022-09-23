@@ -1,0 +1,38 @@
+---
+tags:
+  - 用户接口
+description: 获取用户
+parameters:
+  - name: name
+    in: query
+    schema:
+      type: string
+      description: 模糊查询名字
+      example: "羽"
+  - name: page_size
+    in: query
+    schema:
+      type: int
+      description: 页面大小
+      example: 1
+  - name: page_num
+    in: query
+    schema:
+      type: int
+      description: 页码
+      example: 1
+responses:
+    200:
+      description: OK
+      schema:
+        type: object
+        example: {
+        "data":{
+                 "summary":{"total":10},
+          "users":[{ "id": 1, "username": "admin" }]
+                 }
+        ,
+        "status": "success"
+      }
+
+

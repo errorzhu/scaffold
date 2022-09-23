@@ -1,0 +1,17 @@
+---
+tags:
+  - 用户接口
+description: 获取token
+responses:
+  200:
+    description: OK
+    schema:
+      type: object
+      example: {
+      "data": {
+        "token": "xxxxx"
+      },
+      "status": "success"
+    }
+
+
