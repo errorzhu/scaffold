@@ -1,20 +1,20 @@
 package org.example.scaffold.base.response;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "响应对象")
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "响应对象")
 public class BaseApiResponse<T> {
     private static final int SUCCESS_CODE = 0;
     private static final String SUCCESS_MESSAGE = "成功";
 
-    @ApiModelProperty(value = "响应码", name = "code", required = true, example = "" + SUCCESS_CODE)
+    @Schema(title = "响应码", name = "code", required = true, example = "" + SUCCESS_CODE)
     private int code;
 
-    @ApiModelProperty(value = "响应消息", name = "msg", required = true, example = SUCCESS_MESSAGE)
+    @Schema(title = "响应消息", name = "msg", required = true, example = SUCCESS_MESSAGE)
     private String msg;
 
-    @ApiModelProperty(value = "响应数据", name = "data")
+    @Schema(title = "响应数据", name = "data")
     private T data;
 
     private BaseApiResponse(int code, String msg, T data) {
