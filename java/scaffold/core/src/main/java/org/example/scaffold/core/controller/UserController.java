@@ -22,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @Operation(summary = "获取用户",description = "获取用户")
-    @GetMapping
+    @GetMapping("users")
     public BaseApiResponse<List<UserVO>> findAll() {
         return BaseApiResponse.successWithData(userService.findAll());
     }
