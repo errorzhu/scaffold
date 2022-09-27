@@ -14,9 +14,6 @@ public class SpringDocConfig {
     @Value("${application.name:app}")
     private String applicationName;
 
-    @Value("${swagger.enable:true}")
-    private boolean enable;
-
 
     @Bean
     public OpenAPI openAPI() {
